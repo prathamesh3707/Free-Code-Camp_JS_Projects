@@ -1,0 +1,20 @@
+function telephoneCheck(str) {
+  let patterns = [
+    /^\d{3}-\d{3}-\d{4}$/,
+    /^(\d{3}) ?\d{3}-\d{4}$/,
+    /^\d{3} ?\d{3} ?\d{4}$/,
+    /^1 ?\d{3} ?\d{3} ?\d{4}/,
+    /^1 \d{3}-\d{3}-\d{4}$/,
+    /^1? ?\(\d{3}\) ?\d{3}-\d{4}$/,
+    ]
+  return patterns.some((pat)=>pat.test(str));
+}
+
+telephoneCheck("555-555-5555");
+//alternative solution
+function telephoneCheck(str) {
+  let pattern =/^1? ?(( ?\d{3}[- ]*)|(\(\d{3}\) *))\d{3}[- ]*\d{4}$/;
+  return pattern.test(str);
+}
+
+telephoneCheck("555-555-5555");
